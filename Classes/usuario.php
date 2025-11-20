@@ -24,7 +24,7 @@
             $usuario = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = :e");
             $usuario->bindValue(":e", $email);
             $usuario->execute();
-            if($usuario->rowCount()>0)
+            if($usuario->rowCount() > 0)
             {
                 return false;
             }
@@ -37,6 +37,7 @@
                 $usuario->bindValue(":t",$telefone);
                 $usuario->bindValue(":e",$email);
                 $usuario->bindValue(":s",$senha);
+                $usuario->execute();
                 return true;
             }
         }
